@@ -1,19 +1,60 @@
-.details-contanier {
+.movie-details-contanier {
   display: flex;
   flex-direction: column;
   padding: 10px;
   font-size: 24px;
+  border: 1px solid red;
 }
 
-.details-content-contanier {
-  width: 265px;
-  margin-bottom: 18px;
+.movie-details-card {
+  padding: 10px;
+  border: 1px solid blue;
 }
 
-.details-content-contanier h1 {
-  font-weight: 700;
+.img-container {
+  text-align: center;
+  margin-bottom: 10px;
+  border: 1px solid yellow;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.title-year-subtitle-container {
+  font-weight: bold;
   letter-spacing: -0.015em;
-  color: #ffffff;
+  border: 1px solid green;
+}
+
+.title-year-subtitle-container h1 {
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.title-year-subtitle-container h6 {
+  font-size: 16px;
+  color: #FFC700;
+}
+
+.title-year-subtitle-container p {
+  font-weight: normal;
+  font-size: 14px;  
+  color: #FFFFFF;
+}
+
+.movie-synopsis-container {
+  padding: 13px 13px 5px 10px;
+  border: 1px solid #E1E1E1;
+  border-radius: 10px;  
+}
+
+.movie-synopsis-container p {
+  font-weight: normal;
+  font-size: 16px;
+  text-align: justify;
+  letter-spacing: -0.015em;
+  color: #9E9E9E;
 }
 
 .review-content-contanier {
@@ -27,24 +68,13 @@
 }
 
 @media (min-width: 576px) {
-  .details-contanier {
+  .movie-details-contanier {
     padding: 20px;
-  }
-
-  .details-content-contanier {
-    width: 100%;
   }
 }
 
 @media (min-width: 992px) {
-  .details-contanier {
+  .movie-details-contanier {
     padding: 40px;
   }
-
-  .details-content-contanier {
-    margin-bottom: 25px;
-  }
- .details-content-contanier h1 {
-  font-size: 2.0em;
- }
 }
