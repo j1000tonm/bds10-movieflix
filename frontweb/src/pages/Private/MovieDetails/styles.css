@@ -3,18 +3,15 @@
   flex-direction: column;
   padding: 10px;
   font-size: 24px;
-  border: 1px solid red;
 }
 
 .movie-details-card {
   padding: 10px;
-  border: 1px solid blue;
 }
 
 .img-container {
   text-align: center;
   margin-bottom: 10px;
-  border: 1px solid yellow;
 }
 
 .img-container img {
@@ -24,7 +21,6 @@
 .title-year-subtitle-container {
   font-weight: bold;
   letter-spacing: -0.015em;
-  border: 1px solid green;
 }
 
 .title-year-subtitle-container h1 {
@@ -44,8 +40,9 @@
 }
 
 .movie-synopsis-container {
-  padding: 13px 13px 5px 10px;
+  padding: 15px 15px 0px 15px;
   border: 1px solid #E1E1E1;
+  margin-bottom: 25px;
   border-radius: 10px;  
 }
 
@@ -60,10 +57,10 @@
 .review-content-contanier {
   padding: 20px 10px;
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 25px;
 }
 
-.listing-content-contanier {
+.review-listing-content-contanier {
   padding: 15px 10px;
 }
 
@@ -71,10 +68,54 @@
   .movie-details-contanier {
     padding: 20px;
   }
+
+  .movie-details-card {
+    padding: 20px;
+  }  
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .movie-details-contanier {
     padding: 40px;
   }
+
+  .movie-details-card {
+    padding: 40px;
+  }  
+
+  .review-listing-content-contanier {
+    padding: 40px;
+  }
+
+  .img-container img {
+    width: 608px;
+    height: 382px;
+  }  
+}
+
+@media (min-width: 1200px) {
+  .img-container img {
+    width: 500px;
+    height: 314px;
+  }
+
+  .title-year-subtitle-container h1 {
+    font-size: 36px;
+  }
+  
+  .title-year-subtitle-container h6 {
+    font-size: 24px;
+  }
+  
+  .title-year-subtitle-container p {
+    font-size: 24px;  
+  }
+
+  .movie-synopsis-container {
+    min-height: 293px;
+  }
+
+  .movie-synopsis-container p {
+    font-size: 18px;
+  }  
 }

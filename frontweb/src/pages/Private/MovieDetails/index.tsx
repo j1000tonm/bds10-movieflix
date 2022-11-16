@@ -46,13 +46,13 @@ const MovieDetails = () => {
                 alt="Titulo do filme"
               />
             </div>
-            <div className="title-year-subtitle-container">
+          </div>
+          <div className="col-xl-6">
+          <div className="title-year-subtitle-container">
               <h1>Titulo do filme</h1>
               <h6>2022</h6>
               <p>Subtitulo</p>
             </div>
-          </div>
-          <div className="col-xl-6">
             <div className="movie-synopsis-container">
               <p>
                 O confronto final entre as forças do bem e do mal que lutam pelo
@@ -73,8 +73,9 @@ const MovieDetails = () => {
             <ReviewForm movieId={movieId} onInsertReview={handleInsertReview} />
           </div>
         )}
-
-        <ReviewListing reviews={reviews} />
+        <div className="base-card review-listing-content-contanier">
+          <ReviewListing reviews={reviews} />
+        </div>
       </div>
     </div>
   );
