@@ -14,6 +14,7 @@ type LoginResponse = {
 
 export const BASE_URL =
   process.env.REACT_APP_BACKEND_URL ?? 'https://movieflix-devsuperior.herokuapp.com';
+// 'http://localhost:8080' 
 
 const tokenKey = 'authData';
 

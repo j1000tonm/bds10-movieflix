@@ -1,6 +1,5 @@
 import './styles.css';
 
-import FilmeCardImg from 'assets/images/filme-card.png';
 import { Movie } from 'types/movie';
 
 type Props = {

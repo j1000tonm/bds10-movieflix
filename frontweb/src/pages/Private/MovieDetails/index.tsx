@@ -1,5 +1,4 @@
 import { AxiosRequestConfig } from 'axios';
-import ReviewCard from 'components/ReviewCard';
 import ReviewForm from 'components/ReviewForm';
 import ReviewListing from 'components/ReviewListing';
 import { useEffect, useState } from 'react';
