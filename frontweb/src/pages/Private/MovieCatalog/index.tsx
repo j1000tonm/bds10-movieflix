@@ -10,38 +10,43 @@ import { requestBackend } from 'util/requests';
 import './styles.css';
 
 const MovieCatalog = () => {
-
   const [page, setPage] = useState<SpringPage<Movie>>();
 
-  useEffect(() => {
+  const getMovies = (pageNumber: number) => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/movies',
       params: {
-        page: 0,
+        page: pageNumber,
         size: 4,
       },
       withCredentials: true,
-     };
+    };
 
     requestBackend(config).then((response) => {
       setPage(response.data);
     });
+  }
+
+  useEffect(() => {
+    getMovies(0);
   }, []);
 
   return (
     <div className="container my-4 catalog-container">
-      <div className="base-card movie-filter-container text-white">Search bar</div>
+      <div className="base-card movie-filter-container text-white">
+        Search bar
+      </div>
       <div className="row">
-        {page?.content.map(movie => (
+        {page?.content.map((movie) => (
           <div key={movie.id} className="col-sm-6 col-xl-3">
             <Link to={`/movies/${movie.id}`}>
-              <MovieCatalogCard movies={movie}/>
+              <MovieCatalogCard movies={movie} />
             </Link>
           </div>
         ))}
       </div>
-      <Pagination />
+      <Pagination pageCount={page ? page?.totalPages : 0} range={3} onChange={getMovies} />
     </div>
   );
 };
