@@ -11,6 +11,7 @@
 }
 
 .review-card {
+  min-height: 50px;
   padding: 10px 12px;
   margin-top: 10px;
   margin-bottom: 15px;

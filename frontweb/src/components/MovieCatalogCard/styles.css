@@ -1,4 +1,4 @@
-.review-card {
+.movie-catalog-card {
   margin-bottom: 20px;
   min-height: 322px;
 }
@@ -13,7 +13,7 @@
 }
 
 .card-bottom-container {
-  padding: 10px 20px 0 15px;
+  padding: 10px 20px 50px 15px;
 }
 
 .card-bottom-container h1 {
@@ -36,19 +36,19 @@
 }
 
 @media (min-width: 768px) {
-  .review-card {
+  .movie-catalog-card {
     min-height: 364px;
   }    
 }
 
 @media (min-width: 992px) {
-  .review-card {
+  .movie-catalog-card {
     min-height: 457px;
   }    
 }
 
 @media (min-width: 1200px) {
-  .review-card {
-    min-height: 322px;
+  .movie-catalog-card {
+    min-height: 328px;
   }    
 }

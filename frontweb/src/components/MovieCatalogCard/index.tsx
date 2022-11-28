@@ -6,9 +6,9 @@ type Props = {
     movies: Movie;
 }
 
-const ReviewCard = ( { movies } : Props) => {
+const MovieCatalogCard = ( { movies } : Props) => {
     return (
-        <div className="base-card review-card">
+        <div className="base-card movie-catalog-card">
             <div className="card-top-container">
                 <img src={movies.imgUrl} alt={movies.title} />
             </div>
@@ -21,4 +21,4 @@ const ReviewCard = ( { movies } : Props) => {
     )
 }
 
-export default ReviewCard;
+export default MovieCatalogCard;
