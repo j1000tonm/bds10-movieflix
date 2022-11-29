@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 import MovieCatalogCard from 'components/MovieCatalogCard';
 import Pagination from 'components/Pagination';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Movie } from 'types/movie';
 import { SpringPage } from 'types/vendor/spring';
@@ -9,15 +9,29 @@ import { requestBackend } from 'util/requests';
 
 import './styles.css';
 
+type ControlComponentsData = {
+  activePage: number;
+}
+
 const MovieCatalog = () => {
   const [page, setPage] = useState<SpringPage<Movie>>();
 
-  const getMovies = (pageNumber: number) => {
+  const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>(
+    {
+      activePage: 0
+    }
+  );
+
+  const handlePageChange = (pageNumber: number) => {
+    setControlComponentsData({activePage: pageNumber});
+  };
+
+  const getMovies = useCallback(() => {
     const config: AxiosRequestConfig = {
       method: 'GET',
       url: '/movies',
       params: {
-        page: pageNumber,
+        page: controlComponentsData.activePage,
         size: 4,
       },
       withCredentials: true,
@@ -26,11 +40,11 @@ const MovieCatalog = () => {
     requestBackend(config).then((response) => {
       setPage(response.data);
     });
-  }
+  }, [controlComponentsData])
 
   useEffect(() => {
-    getMovies(0);
-  }, []);
+    getMovies();
+  }, [getMovies]);
 
   return (
     <div className="container my-4 catalog-container">
@@ -46,7 +60,11 @@ const MovieCatalog = () => {
           </div>
         ))}
       </div>
-      <Pagination pageCount={page ? page?.totalPages : 0} range={3} onChange={getMovies} />
+      <Pagination 
+        pageCount={page ? page?.totalPages : 0} 
+        range={3} 
+        onChange={handlePageChange} 
+      />
     </div>
   );
 };
