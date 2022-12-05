@@ -3,6 +3,7 @@ import ButtonIcon from 'components/ButtonIcon';
 import { useForm } from 'react-hook-form';
 import { Review } from 'types/review';
 import { requestBackend } from 'util/requests';
+import { toast } from 'react-toastify';
 
 import './styles.css';
 
@@ -38,12 +39,12 @@ const ReviewForm = ({ movieId, onInsertReview }: Props) => {
 
     requestBackend(config)
       .then((response) => {
+        toast.info('Avaliação salva com sucesso');
         setValue('text', '');
         onInsertReview(response.data);
-        console.log('SUCESSO AO SALVAR', response);
       })
       .catch((error) => {
-        console.log('ERRO AO SALVAR', error);
+        toast.error('Erro ao salvar avaliação');
       });
   };
 
