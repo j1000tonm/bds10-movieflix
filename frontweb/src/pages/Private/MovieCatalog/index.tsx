@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import MovieCatalogCard from 'components/MovieCatalogCard';
-import MovieFilter from 'components/MovieFilter';
+import MovieFilter, { MovieFilterData } from 'components/MovieFilter';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ import './styles.css';
 
 type ControlComponentsData = {
   activePage: number;
+  filterData : MovieFilterData;
 }
 
 const MovieCatalog = () => {
@@ -19,13 +20,19 @@ const MovieCatalog = () => {
 
   const [controlComponentsData, setControlComponentsData] = useState<ControlComponentsData>(
     {
-      activePage: 0
+      activePage: 0,
+      filterData: { genre: null },
     }
   );
 
   const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({activePage: pageNumber});
+    setControlComponentsData({activePage: pageNumber, filterData: controlComponentsData.filterData});
   };
+
+
+  const handleSubmitFilter = (data : MovieFilterData) => {
+    setControlComponentsData({activePage: 0, filterData: data});
+  }
 
   const getMovies = useCallback(() => {
     const config: AxiosRequestConfig = {
@@ -34,6 +41,7 @@ const MovieCatalog = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 4,
+        genreId: controlComponentsData.filterData.genre?.id
       },
       withCredentials: true,
     };
@@ -49,7 +57,7 @@ const MovieCatalog = () => {
 
   return (
     <div className="container my-4 catalog-container">
-      <MovieFilter />
+      <MovieFilter onSubmitFilter={handleSubmitFilter} />
       <div className="row">
         {page?.content.map((movie) => (
           <div key={movie.id} className="col-sm-6 col-xl-3">
@@ -60,6 +68,7 @@ const MovieCatalog = () => {
         ))}
       </div>
       <Pagination 
+        forcePage={page?.number}
         pageCount={page ? page?.totalPages : 0} 
         range={3} 
         onChange={handlePageChange} 

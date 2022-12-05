@@ -5,19 +5,22 @@ import { useEffect, useState } from 'react';
 import './styles.css';
 import { Controller, useForm } from 'react-hook-form';
 
-type MovieFilterData = {
+export type MovieFilterData = {
   genre: Genre | null;
 };
 
-const MovieFilter = () => {
+type Props = {
+  onSubmitFilter: (data: MovieFilterData) => void;
+};
 
+const MovieFilter = ({ onSubmitFilter }: Props) => {
   const [selectGenres, setSelectGenres] = useState<Genre[]>([]);
 
   const { handleSubmit, setValue, getValues, control } =
     useForm<MovieFilterData>();
 
   const onSubmit = (formData: MovieFilterData) => {
-    console.log('ENVIOU', formData);
+    onSubmitFilter(formData);
   };
 
   const handleChangeGenre = (value: Genre) => {
@@ -27,7 +30,7 @@ const MovieFilter = () => {
       genre: getValues('genre'),
     };
 
-    console.log('ENVIOU', obj);
+    onSubmitFilter(obj);
   };
 
   useEffect(() => {
