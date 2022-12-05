@@ -1,5 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import MovieCatalogCard from 'components/MovieCatalogCard';
+import MovieFilter from 'components/MovieFilter';
 import Pagination from 'components/Pagination';
 import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -48,9 +49,7 @@ const MovieCatalog = () => {
 
   return (
     <div className="container my-4 catalog-container">
-      <div className="base-card movie-filter-container text-white">
-        Search bar
-      </div>
+      <MovieFilter />
       <div className="row">
         {page?.content.map((movie) => (
           <div key={movie.id} className="col-sm-6 col-xl-3">

@@ -2,11 +2,6 @@
   padding: 15px;
 }
 
-.movie-filter-container {
-  padding: 15px;
-  margin-bottom: 20px;
-}
-
 @media (min-width: 768px) {
     .catalog-container {
       padding: 40px;

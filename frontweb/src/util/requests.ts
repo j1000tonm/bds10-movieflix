@@ -13,8 +13,8 @@ type LoginResponse = {
 };
 
 export const BASE_URL =
-  process.env.REACT_APP_BACKEND_URL ?? 'https://movieflix-devsuperior.herokuapp.com';
-// 'http://localhost:8080' 
+  process.env.REACT_APP_BACKEND_URL ?? 'http://localhost:8080';
+//  'https://movieflix-devsuperior.herokuapp.com'
 
 const tokenKey = 'authData';
 
