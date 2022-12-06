@@ -56,7 +56,7 @@ const MovieCatalog = () => {
   }, [getMovies]);
 
   return (
-    <div className="container my-4 catalog-container">
+    <div className="container my-4 movie-catalog-container">
       <MovieFilter onSubmitFilter={handleSubmitFilter} />
       <div className="row">
         {page?.content.map((movie) => (

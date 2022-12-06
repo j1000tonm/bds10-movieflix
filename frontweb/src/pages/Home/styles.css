@@ -23,14 +23,30 @@
 }
 
 @media (min-width: 576px) {
+  .home-container {
+    padding: 40px 50px;
+  }
+
   .home-form-container {
     width: 480px;
   }
 }
 
+@media (min-width: 768px) {
+  .home-container {
+    padding: 50px 145px;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-container {
+    padding: 40px 256px;
+  }
+}
+
 @media (min-width: 1200px) {
   .home-container {
-    padding: 40px;
+    padding: 40px 100px;
   }
 
   .home-banner-container {

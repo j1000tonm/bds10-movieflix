@@ -2,7 +2,11 @@
   margin-top: 20px;
 }
 
-@media (min-width: 576px) {
+.base-input {
+  font-size: 16px;
+}
+
+@media (min-width: 992px) {
   .save-submit {
     display: flex;
     justify-content: center;

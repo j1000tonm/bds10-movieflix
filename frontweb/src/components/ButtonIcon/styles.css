@@ -18,7 +18,10 @@
   .btn h6 {
     font-size: 18px;
   }
+}
+
+@media (min-width: 992px) {
   .btn-container button {
-    width: 380px;
+    width: 400px;
   }
 }

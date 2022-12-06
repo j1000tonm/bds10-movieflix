@@ -1,9 +1,15 @@
-.catalog-container {
-  padding: 15px;
+.movie-catalog-container {
+  padding: 0 10px;
 }
 
+@media (min-width: 576px) {
+  .movie-catalog-container {
+    padding: 0 20px;
+  }
+}  
+
 @media (min-width: 768px) {
-    .catalog-container {
-      padding: 40px;
+    .movie-catalog-container {
+      padding: 20px 40px;
     }
 }  

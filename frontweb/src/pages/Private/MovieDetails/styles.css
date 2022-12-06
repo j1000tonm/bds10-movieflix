@@ -21,23 +21,31 @@
 }
 
 @media (min-width: 576px) {
+  .review-content-contanier {
+    padding: 20px;
+  }
+
   .movie-details-contanier {
     padding: 20px;
   }
 
   .movie-details-card {
     padding: 20px;
-  }  
+  }
 }
 
 @media (min-width: 768px) {
+  .review-content-contanier {
+    padding: 40px;
+  }
+  
   .movie-details-contanier {
     padding: 40px;
   }
 
   .movie-details-card {
     padding: 40px;
-  }  
+  }
 
   .review-listing-content-contanier {
     padding: 40px;
